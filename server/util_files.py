@@ -13,7 +13,7 @@ def read_file_whole(filename):
 	return contents
 
 #Read data from file to tuple
-def read_file_tuple():
+def read_file_tuple(filename):
 	with open(filename, "r") as f:
 		contents = f.read().splitlines()
 	f.close()

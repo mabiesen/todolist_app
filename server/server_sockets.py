@@ -5,6 +5,7 @@
 #send confirmation
 import socket
 import threading
+import server_manage_client_input
 
 bind_ip = "0.0.0.0"
 bind_port = 9999
@@ -15,9 +16,10 @@ server.listen(5)
 
 print("[*] Listening on %s:%d" % (bind_ip, bind_port))
 
-    #send back a packet
-def reply_to_client(client_socket, msg):
-    client_socket.send(msg)
+#send back a packet
+def reply_to_client(client_socket, request):
+	success = server_manage_client_input.redirect_user_input(request)
+    client_socket.send(success)
     client_socket.close()
 
 
@@ -27,7 +29,7 @@ def handle_client(client_socket):
     #print out what the client sends
     request = client_socket.recv(1024)
     print("[*] Received %s" % request)
-	reply_to_client(request, client_socket)
+	reply_to_client(client_socket, request)
 
 
 
