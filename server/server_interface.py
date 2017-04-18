@@ -22,5 +22,4 @@ class ToDoBoxLayoutExample(App):
 if __name__ == "__main__":
     #app = HBoxLayoutExample()
     app = ToDoBoxLayoutExample()
-    app.setOrientation('vertical')
     app.run()
