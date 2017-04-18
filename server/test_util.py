@@ -47,5 +47,11 @@ print(wholefile)
 
 ########
 # delete line by its indexed number
-util_files.delete_line_by_index(fullfilepath, 2)
+util_files.delete_line_by_index(fullfilepath, 0)
 ########
+
+######
+#Find the index value of the line for given text
+indexnumber = util_files.find_line_index_by_matchtext(fullfilepath, "friend")
+print(indexnumber)
+######
