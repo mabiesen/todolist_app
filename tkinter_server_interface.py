@@ -23,9 +23,6 @@ class App(Frame):
 			self.call_button.grid(row=x, column=5) # This is fixing your issue
 			x = x + 1
 
-    def b(self):
-        print(self.call_button.destroy())
-
 root = Tk()
 app = App(master=root)
 app.mainloop()
