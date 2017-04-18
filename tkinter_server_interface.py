@@ -1,3 +1,4 @@
+import util_files
 #Python3 - from tkinter import *
 #Python2 - from Tkinter import *
 try:
@@ -13,23 +14,40 @@ class App(Frame):
 	def __init__(self, master):
 		Frame.__init__(self, master)
 		self.grid()
-		self.a()
+		self.make_buttons()
 
-	def a(self):
+	def make_buttons(self):
 		mylist = self.getdata()
 		x = 0
 		while x < 5:
 			self.call_button = Button(self, text = mylist[x])
-			self.call_button['command'] = lambda b=self.call_button: self.change_button_text(b)
+			self.call_button['command'] = lambda b=self.call_button: self.delete_button(b)
 			self.call_button.grid(row=x, column=5) # This is fixing your issue
 			x = x + 1
 
 	def getdata(self):
-		mylist = ["hi","how","are","you","?"]
+		mypath = util_files.script_directory_path()
+		myfile = "todolist.txt"
+		filename = mypath + "/listfiles/" + myfile
+		mylist = util_files.read_file_to_list(filename)
 		return mylist
 
+	def deletedata(self,buttontext):
+		mypath = util_files.script_directory_path()
+		myfile = "todolist.txt"
+		filename = mypath + "/listfiles/" + myfile
+		util_files.delete_line_by_matchtext(filename, buttontext)
+
 	def delete_button(self,b):
+		mytext = b['text']
+		self.deletedata(mytext)
 		b.destroy()
+		#self.append_button()
+
+	def append_button(self):
+		mylist = self.getdata()
+		self.call_button = Button(self, text=index)
+		self.call_button.grid(row=5,column=5)
 
 	def change_button_text(self, b):
 		b['text'] = "hello"
