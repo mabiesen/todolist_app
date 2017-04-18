@@ -32,7 +32,7 @@ def handle_sent_list_item(myinput):
 	return "Successfully added item to list!"
 
 # Handle request to delete an item from a list
-def handle_delete(myinput):
+def handle_delete_item(myinput):
 	myfile = myinput(1)
 	filename = myfile + ".txt"
 	mypath = util_files.script_directory_path()

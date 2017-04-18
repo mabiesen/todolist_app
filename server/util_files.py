@@ -19,17 +19,17 @@ def read_file_to_list(filename):
 	f.close()
 	return contents
 
-# adds a number to each line in list of filedata for easy index reference
-def read_file_to_numbered_list(filename, data):
-	ctr = 0
-	with open(filename, "r") as f:
-		contents = f.read().splitlines()
-		for line in contents:
-			mystuff = line
-			numberedlist(ctr) = str(ctr) + ". " + mystuff
-			ctr = ctr + 1
-	f.close()
-	return numberedlist
+# # adds a number to each line in list of filedata for easy index reference
+# def read_file_to_numbered_list(filename, data):
+# 	ctr = 0
+# 	with open(filename, "r") as f:
+# 		contents = f.read().splitlines()
+# 		for line in contents:
+# 			mystuff = line
+# 			numberedlist(ctr) = str(ctr) + ". " + mystuff
+# 			ctr = ctr + 1
+# 	f.close()
+# 	return numberedlist
 
 #Create new file
 def write_file(filename, data):
@@ -66,15 +66,15 @@ def delete_line_by_matchtext(filename, matchtext):
 def delete_line_by_index(filename, index):
 	del_line = index   #line to be deleted: no. 3 (first line is no. 1)
 
-	with open(filename,"r") as textobj:
-	    list = list(textobj)    #puts all lines in a list
+	with open(filename, "r") as f:
+		list = f.read().splitlines()    #puts all lines in a list
 
-	del list[del_line - 1]    #delete regarding element
+	del list[del_line]    #delete regarding element
 
 	    #rewrite the textfile from list contents/elements:
 	with open(filename,"w") as textobj:
 	    for n in list:
-	        textobj.write(n)
+	        textobj.write(n + "\n")
 	return
 
 
