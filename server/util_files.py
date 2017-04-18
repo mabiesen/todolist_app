@@ -89,6 +89,7 @@ def find_line_index_by_matchtext(filename, matchtext):
 	d = f.readlines()
 
 	ctr = 0
+	linenum = ""
 	for i in d:
 		if i.find(matchtext) > -1:
 			linenum = ctr
@@ -98,8 +99,8 @@ def find_line_index_by_matchtext(filename, matchtext):
 
 #Return a list of all directory files
 def all_directory_files(directory):
-	filelist = ()
+	filelist = []
 	for filename in os.listdir(directory):
 		full_filepath = os.path.join(directory, filename)
 		filelist.append(full_filepath)
-	return full_filepath
+	return filelist

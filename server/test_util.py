@@ -55,3 +55,9 @@ util_files.delete_line_by_index(fullfilepath, 0)
 indexnumber = util_files.find_line_index_by_matchtext(fullfilepath, "friend")
 print(indexnumber)
 ######
+
+#####
+#Returns a list of files from the selected directory
+directorylist = util_files.all_directory_files(util_files.script_directory_path())
+print(directorylist)
+#####
