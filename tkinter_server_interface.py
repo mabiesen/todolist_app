@@ -14,15 +14,24 @@ class App(Frame):
 	def __init__(self, master):
 		Frame.__init__(self, master)
 		self.grid()
+		self.make_label()
 		self.make_buttons()
+
+	def make_label(self):
+		self.list_label = Label(self, text = "To Do List")
+		self.list_label.grid(row=0, column=5)
 
 	def make_buttons(self):
 		mylist = self.getdata()
 		x = 0
-		while x < 5:
+		endlist = 5
+		listlength = len(mylist)
+		if listlength < endlist:
+			endlist = listlength
+		while x < endlist:
 			self.call_button = Button(self, text = mylist[x])
 			self.call_button['command'] = lambda b=self.call_button: self.delete_button(b)
-			self.call_button.grid(row=x, column=5) # This is fixing your issue
+			self.call_button.grid(row=(x+1), column=5) # This is fixing your issue
 			x = x + 1
 
 	def getdata(self):
@@ -42,12 +51,14 @@ class App(Frame):
 		mytext = b['text']
 		self.deletedata(mytext)
 		b.destroy()
-		#self.append_button()
+		self.append_button()
 
 	def append_button(self):
 		mylist = self.getdata()
-		self.call_button = Button(self, text=index)
-		self.call_button.grid(row=5,column=5)
+		if len(mylist) >= 5:
+			self.call_button = Button(self, text=mylist[4])
+			self.call_button['command'] = lambda b=self.call_button: self.delete_button(b)
+			self.call_button.grid(column=5)
 
 	def change_button_text(self, b):
 		b['text'] = "hello"
