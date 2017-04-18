@@ -5,7 +5,7 @@ from kivy.uix.boxlayout import BoxLayout
 
 #-----------------------------------------------------------------------
 
-class ToDoBoxLayoutExample(App):
+class ItemBoxLayoutExample(App):
 
     def build(self):
         layout = BoxLayout(padding=10, orientation='vertical')
@@ -21,5 +21,5 @@ class ToDoBoxLayoutExample(App):
 #----------------------------------------------------------------------
 if __name__ == "__main__":
     #app = HBoxLayoutExample()
-    app = ToDoBoxLayoutExample()
+    app = ItemBoxLayoutExample()
     app.run()
