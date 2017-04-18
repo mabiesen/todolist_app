@@ -16,12 +16,17 @@ class App(Frame):
 		self.a()
 
 	def a(self):
+		mylist = self.getdata()
 		x = 0
 		while x < 5:
-			self.call_button = Button(self, text = "Call" + str(x))
+			self.call_button = Button(self, text = mylist[x])
 			self.call_button['command'] = lambda b=self.call_button: self.change_button_text(b)
 			self.call_button.grid(row=x, column=5) # This is fixing your issue
 			x = x + 1
+
+	def getdata(self):
+		mylist = ["hi","how","are","you","?"]
+		return mylist
 
 	def delete_button(self,b):
 		b.destroy()
