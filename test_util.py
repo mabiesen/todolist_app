@@ -1,5 +1,5 @@
-#import util_general
-from util import util_general
+import util_general
+
 testcolonstring = "Hello:World"
 testarray = [1,2,3,4,5,6,7,8,9]
 
@@ -17,8 +17,8 @@ print(newarray)
 #########
 
 ############################################
-# import util_files
-from ..util_files import *
+import util_files
+
 
 testfile = "testfile.txt"
 testfilestring = "Hel"

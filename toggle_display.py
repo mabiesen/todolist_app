@@ -13,11 +13,11 @@ while True:
        if i==0:                 #When output from motion sensor is LOW
              print "No Movement",i
 			 subprocess.call('xset dpms force off', shell=True)
-             time.sleep(0.1)
+             time.sleep(1)
        elif i==1:               #When output from motion sensor is HIGH
              print "Visitor detected",i
 			 subprocess.call('xset dpms force on', shell=True)
-             time.sleep(180)
+             time.sleep(150)
 
 
 # os.environ['DISPLAY'] = ":0"
