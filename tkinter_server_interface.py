@@ -19,12 +19,15 @@ class App(Frame):
 		x = 0
 		while x < 5:
 			self.call_button = Button(self, text = "Call" + str(x))
-			self.call_button['command'] = lambda b=self.call_button: self.myfunction(b)
+			self.call_button['command'] = lambda b=self.call_button: self.change_button_text(b)
 			self.call_button.grid(row=x, column=5) # This is fixing your issue
 			x = x + 1
 
-	def myfunction(self,b):
+	def delete_button(self,b):
 		b.destroy()
+
+	def change_button_text(self, b):
+		b['text'] = "hello"
 
 root = Tk()
 app = App(master=root)
