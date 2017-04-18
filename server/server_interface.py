@@ -1,23 +1,34 @@
-#Controls graphical Tkinter interface
+import kivy
+import random
 
-#BASIC LAYOUT
-# program will open to the todo list screen
+from kivy.app import App
+from kivy.uix.button import Button
+from kivy.uix.boxlayout import BoxLayout
 
-#todo list screen will have large buttons centered
-#and additional small buttons displayed
+class VBoxLayoutExample(App):
+    """
+    Vertical oriented BoxLayout example class
+    """
 
-#small buttons will be used to house christmas lists
+    #----------------------------------------------------------------------
+    def setOrientation(self, orient):
+        """"""
+        self.orient = orient
 
+    #----------------------------------------------------------------------
+    def build(self):
+        """"""
+        layout = BoxLayout(padding=10, orientation='vertical')
+		l = Label(text='To Do List', font_size=24)
 
-#Need os error handling for tkinter object size
+        for i in range(5):
+            btn = Button(text="Button #%s" % (i+1) )
+            layout.add_widget(btn)
+        return layout
 
-#TOdo screen
-#Class for todo screen?
-#function to create main buttons
-#function to create small buttons
-#todo item click deletes item
-#small button item removes
-
-#Other screen
-#Class for other screen.
-#Function to create list item
+#----------------------------------------------------------------------
+if __name__ == "__main__":
+    #app = HBoxLayoutExample()
+    app = VBoxLayoutExample()
+    app.setOrientation('vertical')
+    app.run()
