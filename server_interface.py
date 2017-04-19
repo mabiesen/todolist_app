@@ -31,7 +31,7 @@ def mainfunc():
 			if listlength < endlist:
 				endlist = listlength
 			while x < endlist:
-				self.call_button = Button(self, text = mylist[x],width=125, height=7, font=(None, 15))
+				self.call_button = Button(self, text = mylist[x],width=40, height=3, font=(None, 15))
 				self.call_button['command'] = lambda b=self.call_button: self.delete_button(b)
 				self.call_button.grid(row=(x+1), column=5, sticky=E+W)
 				x = x + 1
