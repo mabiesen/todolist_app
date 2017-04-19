@@ -25,7 +25,7 @@ For new users trying to understand the source code, I have the following structu
 
 As of 4/19/2017, communication between server and client is functional (python2).  Server is fully functional as regards the todo list.  
 
-[ ] Server scripts do not shut down gracefully on ctrl + c, correct
-[ ] As of right now, ONLY todolist will be displayed. Need to alter tkinter script to allow for other lists
-[ ] Finish integrating the motion sensor.  Script written but not tested.
-[ ] Create script that will add items to the todo list at a given date and time.  For instance, garbage day falls on a Wednesday for me; every Wednesday I want to see a garbage todo at the top of the list, and in the event I don't delete the task, I want it automatically deleted on thursday.
+- [ ] Server scripts do not shut down gracefully on ctrl + c, correct
+- [ ] As of right now, ONLY todolist will be displayed. Need to alter tkinter script to allow for other lists.  Make sure to default back to todo list after a given duration.
+- [ ] Finish integrating the motion sensor.  Script written but not tested.
+- [ ] Create script that will add items to the todo list at a given date and time.  For instance, garbage day falls on a Wednesday for me; every Wednesday I want to see a garbage todo at the top of the list, and in the event I don't delete the task, I want it automatically deleted on thursday.
