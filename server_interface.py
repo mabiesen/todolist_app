@@ -31,7 +31,7 @@ def mainfunc():
 			if listlength < endlist:
 				endlist = listlength
 			while x < endlist:
-				self.call_button = Button(self, text = mylist[x],width=55, height=2, font=(None, 15))
+				self.call_button = Button(self, text = mylist[x],width=60, height=2, font=(None, 15))
 				self.call_button['command'] = lambda b=self.call_button: self.delete_button(b)
 				self.call_button.grid(row=(x+1), column=5, sticky=E+W)
 				x = x + 1
@@ -58,7 +58,7 @@ def mainfunc():
 		def append_button(self):
 			mylist = self.getdata()
 			if len(mylist) >= 5:
-				self.call_button = Button(self, text=mylist[4])
+				self.call_button = Button(self, text = mylist[4],width=60, height=2, font=(None, 15))
 				self.call_button['command'] = lambda b=self.call_button: self.delete_button(b)
 				self.call_button.grid(column=5)
 
@@ -72,6 +72,7 @@ def mainfunc():
 	#root.geometry("%dx%d+0+0" % (w, h))
 	app = App(master=root)
 	app.mainloop()
+
 
 #command to destroy a button on click
 		#	self.call_button['command'] = lambda b=self.call_button: b.destroy()
