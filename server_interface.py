@@ -14,6 +14,7 @@ def mainfunc():
 	class App(Frame):
 		def __init__(self, master):
 			Frame.__init__(self, master)
+			self.number_of_btns = 4
 			self.grid()
 			self.grid_columnconfigure(0, weight=1)
 			self.make_label()
@@ -54,14 +55,31 @@ def mainfunc():
 			mytext = b['text']
 			self.deletedata(mytext)
 			b.destroy()
-			self.append_button()
+			self.append_buttons()
 
-		def append_button(self):
+		def append_buttons(self):
+			print(len(self.winfo_children()))
 			mylist = self.getdata()
-			if len(mylist) > 4:
-				self.call_button = Button(self, text = mylist[3],width=60, height=2, font=(None, 15))
-				self.call_button['command'] = lambda b=self.call_button: self.delete_button(b)
-				self.call_button.grid(column=5)
+			desired_num_btns = 4
+			numbuttons = len(self.winfo_children())-1
+			if numbuttons < desired_num_btns:
+				firstdifference = desired_num_btns - numbuttons
+				seconddifference = len(mylist) - numbuttons
+				if firstdifference > seconddifference:
+					loopwhile = seconddifference
+				else:
+					loopwhile = firstdifference
+
+				ctr = 0
+				while ctr < loopwhile:
+					self.call_button = Button(self, text = mylist[numbuttons],width=60, height=2, font=(None, 15))
+					self.call_button['command'] = lambda b=self.call_button: self.delete_button(b)
+					self.call_button.grid(column=5)
+					numbuttons = numbuttons + 1
+					ctr = ctr + 1
+
+			else:
+				self.number_of_btns = self.number_of_btns - 1
 
 		def change_button_text(self, b):
 			b['text'] = "hello"
