@@ -1,2 +1,6 @@
 Clean the garage
 Apply to jobs
+Fix this project
+Correct pi interface
+Correct server_sockets
+error colon_string_to_list
