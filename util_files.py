@@ -75,6 +75,7 @@ def delete_line_by_index(filename, index):
 	with open(filename,"w") as textobj:
 	    for n in list:
 	        textobj.write(n + "\n")
+		textobject.close()
 	return
 
 

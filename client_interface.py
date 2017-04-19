@@ -35,5 +35,5 @@ def command_line_arguments():
 			mysend = option + ":" + arg + ":" + mymatch
 
 	print("The following string will be sent: %s" % mysend)
-	#client_sockets.send_data(mysend)
+	client_sockets.send_data(mysend)
 command_line_arguments()

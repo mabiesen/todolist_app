@@ -26,7 +26,7 @@ def mainfunc():
 		def make_buttons(self):
 			mylist = self.getdata()
 			x = 0
-			endlist = 5
+			endlist = 4
 			listlength = len(mylist)
 			if listlength < endlist:
 				endlist = listlength
@@ -37,6 +37,7 @@ def mainfunc():
 				x = x + 1
 
 		def getdata(self):
+			print("getdata was called")
 			mypath = util_files.script_directory_path()
 			myfile = "todolist.txt"
 			filename = mypath + "/listfiles/" + myfile
@@ -57,8 +58,8 @@ def mainfunc():
 
 		def append_button(self):
 			mylist = self.getdata()
-			if len(mylist) >= 5:
-				self.call_button = Button(self, text = mylist[4],width=60, height=2, font=(None, 15))
+			if len(mylist) > 4:
+				self.call_button = Button(self, text = mylist[3],width=60, height=2, font=(None, 15))
 				self.call_button['command'] = lambda b=self.call_button: self.delete_button(b)
 				self.call_button.grid(column=5)
 
