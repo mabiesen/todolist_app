@@ -4,7 +4,7 @@
 #Receive all list items(list)
 #Send list item (list, item)
 #delete list item (list, item)
-import message_util
+import util_message
 import client_sockets
 import getopt
 import sys
@@ -20,17 +20,17 @@ def command_line_arguments():
 	mysend = ""
 	for opt, arg in options:
 		if opt in ('-r', '--requestlist'):
-			#mylist = message_util.get_user_input("Please provide the name of the list you would like to see: ")
+			#mylist = util_message.get_user_input("Please provide the name of the list you would like to see: ")
 			option = "request"
 			mysend = option + ":" + arg
 		elif opt in ('-s', '--send'):
-			#mylist = message_util.get_user_input("Please provide the name of the list you would like to add to: ")
-			data = message_util.get_user_input("Please provide some data to send: ")
+			#mylist = util_message.get_user_input("Please provide the name of the list you would like to add to: ")
+			data = util_message.get_user_input("Please provide some data to send: ")
 			option = "send"
 			mysend = option + ":" + arg + ":" + data
 		elif opt in ('-d', '--delete'):
-			#mylist = message_util.get_user_input("Please provide the name of the list you would like to add to: ")
-			mymatch = message_util.get_user_input("Please provide some words that distinguish the line you would like to delete")
+			#mylist = util_message.get_user_input("Please provide the name of the list you would like to add to: ")
+			mymatch = util_message.get_user_input("Please provide some words that distinguish the line you would like to delete")
 			option = "delete"
 			mysend = option + ":" + arg + ":" + mymatch
 
