@@ -14,11 +14,12 @@ class App(Frame):
 	def __init__(self, master):
 		Frame.__init__(self, master)
 		self.grid()
+		self.grid_columnconfigure(0, weight=1)
 		self.make_label()
 		self.make_buttons()
 
 	def make_label(self):
-		self.list_label = Label(self, text = "To Do List")
+		self.list_label = Label(self, text = "To Do List", font=(None, 30), height=5)
 		self.list_label.grid(row=0, column=5)
 
 	def make_buttons(self):
@@ -26,12 +27,13 @@ class App(Frame):
 		x = 0
 		endlist = 5
 		listlength = len(mylist)
+		print(w)
 		if listlength < endlist:
 			endlist = listlength
 		while x < endlist:
-			self.call_button = Button(self, text = mylist[x])
+			self.call_button = Button(self, text = mylist[x],width=125, height=7, font=(None, 15))
 			self.call_button['command'] = lambda b=self.call_button: self.delete_button(b)
-			self.call_button.grid(row=(x+1), column=5) # This is fixing your issue
+			self.call_button.grid(row=(x+1), column=5, sticky=E+W)
 			x = x + 1
 
 	def getdata(self):
@@ -64,6 +66,10 @@ class App(Frame):
 		b['text'] = "hello"
 
 root = Tk()
+#make fullscreen
+w, h = root.winfo_screenwidth(), root.winfo_screenheight()
+root.overrideredirect(1)
+root.geometry("%dx%d+0+0" % (w, h))
 app = App(master=root)
 app.mainloop()
 
