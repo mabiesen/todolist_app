@@ -1,8 +1,5 @@
-#host a tcp server to receive data
+#host a tcp server to receive data and return response
 
-#Note:  Code for tcp server purposefully left global.  TCP server should run all of the time.
-
-#send confirmation
 import socket
 import threading
 import server_manage_client_input
@@ -17,14 +14,16 @@ def start_server():
 
 	print("[*] Listening on %s:%d" % (bind_ip, bind_port))
 
-	#send back a packet
+	#send back strings to client
+	#server_manage_client_input determines what to do with a request.
 	def reply_to_client(client_socket, request):
 		success = server_manage_client_input.redirect_user_input(request)
 		client_socket.send(success)
 		client_socket.close()
 
 
-	#this is our client-handling thread
+	#this function called as new thread
+	#receives information, then works on a reply
 	def handle_client(client_socket):
 
 	    #print out what the client sends
@@ -33,7 +32,8 @@ def start_server():
 		reply_to_client(client_socket, request)
 
 
-
+#Constantly scans for connections to clients.
+#spins off a new thread when contact is made with client
 	while True:
 	    client, addr = server.accept()
 
