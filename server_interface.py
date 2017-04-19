@@ -28,7 +28,6 @@ def mainfunc():
 			x = 0
 			endlist = 5
 			listlength = len(mylist)
-			print(w)
 			if listlength < endlist:
 				endlist = listlength
 			while x < endlist:
@@ -68,9 +67,9 @@ def mainfunc():
 
 	root = Tk()
 	#make fullscreen
-	w, h = root.winfo_screenwidth(), root.winfo_screenheight()
-	root.overrideredirect(1)
-	root.geometry("%dx%d+0+0" % (w, h))
+	#w, h = root.winfo_screenwidth(), root.winfo_screenheight()
+	#root.overrideredirect(1)
+	#root.geometry("%dx%d+0+0" % (w, h))
 	app = App(master=root)
 	app.mainloop()
 

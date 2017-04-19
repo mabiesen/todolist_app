@@ -1,6 +1,6 @@
 # Client input must be interpreted and directed appropriately
- import util_files
- import util_general
+import util_files
+import util_general
 # Main function to determine user input
 def redirect_user_input(myinput):
 	input_split = util_general.colon_string_to_list(myinput)
