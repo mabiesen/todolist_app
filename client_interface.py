@@ -29,10 +29,10 @@ def command_line_arguments():
 			option = "send"
 			mysend = option + ":" + arg + ":" + data
 		elif opt in ('-d', '--delete'):
-			mylist = message_util.get_user_input("Please provide the name of the list you would like to add to: ")
+			#mylist = message_util.get_user_input("Please provide the name of the list you would like to add to: ")
 			mymatch = message_util.get_user_input("Please provide some words that distinguish the line you would like to delete")
 			option = "delete"
-			mysend = option + ":" + mylist + ":" + mymatch
+			mysend = option + ":" + arg + ":" + mymatch
 
 	print("The following string will be sent: %s" % mysend)
 	#client_sockets.send_data(mysend)
